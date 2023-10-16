@@ -8,7 +8,7 @@
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
     <ROW Property="ALLUSERS" Value="1"/>
     <ROW Property="ARPCOMMENTS" Value="Diese Datenbank ist korrekt und enthält nötige Daten um [|ProductName] zu installieren." ValueLocId="*"/>
-    <ROW Property="ARPPRODUCTICON" Value="PDFDecrypter.exe" Type="8"/>
+    <ROW Property="ARPPRODUCTICON" Value="PDFDecrypter_1.exe" Type="8"/>
     <ROW Property="ARPURLUPDATEINFO" Value="https://github.com/co-IT/PDFDecrypter"/>
     <ROW Property="Manufacturer" Value="co-IT.eu GmbH"/>
     <ROW Property="ProductCode" Value="1031:{9D19E9E5-321A-4202-899D-268719DA9798} " Type="16"/>
@@ -136,7 +136,7 @@
     <ROW Feature_="MainFeature" Component_="coIT.Tools.PDFDecrypter.exe_1"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
-    <ROW Name="PDFDecrypter.exe" SourcePath="..\Desktop\PDFDecrypter.ico" Index="0"/>
+    <ROW Name="PDFDecrypter_1.exe" SourcePath="PDFDecrypter.ico" Index="0"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIniFileComponent">
     <ROW IniFile="AppDir" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="AppDir" Value="[APPDIR]" Action="0" Component_="updater.exe"/>
@@ -182,7 +182,7 @@
     <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
-    <ROW Shortcut="PDFDecrypter" Directory_="DesktopFolder" Name="PDFDEC~2|PDFDecrypter" Component_="coIT.Tools.PDFDecrypter.exe_1" Target="[#coIT.Tools.PDFDecrypter.exe]" Hotkey="0" Icon_="PDFDecrypter.exe" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
+    <ROW Shortcut="PDFDecrypter" Directory_="DesktopFolder" Name="PDFDEC~2|PDFDecrypter" Component_="coIT.Tools.PDFDecrypter.exe_1" Target="[#coIT.Tools.PDFDecrypter.exe]" Hotkey="0" Icon_="PDFDecrypter_1.exe" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
     <ROW Shortcut="Verknpfungzu" Directory_="DesktopFolder" Name="PDFDEC~1|PDFDecrypter Aktualisieren" Component_="updater.exe" Target="[#updater.exe]" Arguments="/checknow" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
