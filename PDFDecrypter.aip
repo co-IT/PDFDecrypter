@@ -32,10 +32,10 @@
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
     <ROW Component="APPDIR" ComponentId="{67AD01C7-ADD3-47D7-AE64-D4249F8EBC11}" Directory_="APPDIR" Attributes="0"/>
     <ROW Component="ProductInformation" ComponentId="{84AB938E-3DFB-4840-B48D-EC5BDD4521FD}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
-    <ROW Component="Spire.Pdf.dll" ComponentId="{C4995791-17E6-4ED9-988D-382A167AF51C}" Directory_="APPDIR" Attributes="0" KeyPath="Spire.Pdf.dll"/>
-    <ROW Component="coIT.Tools.PDFDecrypter.deps.json_1" ComponentId="{19F0251D-CAEC-4E7E-8508-91C869D0F96B}" Directory_="APPDIR" Attributes="0" KeyPath="coIT.Tools.PDFDecrypter.deps.json" Type="0"/>
-    <ROW Component="coIT.Tools.PDFDecrypter.dll" ComponentId="{EBD1C06F-0647-4D15-BCF3-BA2DB7E0A117}" Directory_="APPDIR" Attributes="0" KeyPath="coIT.Tools.PDFDecrypter.dll"/>
-    <ROW Component="coIT.Tools.PDFDecrypter.exe_1" ComponentId="{51F74094-A0A7-48BF-93F9-1E60A6232438}" Directory_="APPDIR" Attributes="256" KeyPath="coIT.Tools.PDFDecrypter.exe"/>
+    <ROW Component="Spire.Pdf.dll" ComponentId="{6225980A-2874-4A31-86B5-FB24B1229EAC}" Directory_="APPDIR" Attributes="0" KeyPath="Spire.Pdf.dll"/>
+    <ROW Component="coIT.Tools.PDFDecrypter.deps.json_1" ComponentId="{196C9DBF-5ED5-41E7-93A1-5F3F254EA10A}" Directory_="APPDIR" Attributes="0" KeyPath="coIT.Tools.PDFDecrypter.deps.json" Type="0"/>
+    <ROW Component="coIT.Tools.PDFDecrypter.dll" ComponentId="{E8156DEF-F0F6-4155-A92D-2D688B4BD92A}" Directory_="APPDIR" Attributes="0" KeyPath="coIT.Tools.PDFDecrypter.dll"/>
+    <ROW Component="coIT.Tools.PDFDecrypter.exe_1" ComponentId="{C0891B92-C1D9-43D2-8C55-851FFBD5AD0F}" Directory_="APPDIR" Attributes="256" KeyPath="coIT.Tools.PDFDecrypter.exe"/>
     <ROW Component="updater.exe" ComponentId="{0882FA2A-7046-4071-903C-B8F6BC54910C}" Directory_="APPDIR" Attributes="0" KeyPath="updater.exe"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
@@ -43,13 +43,13 @@
     <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
-    <ROW File="coIT.Tools.PDFDecrypter.deps.json" Component_="coIT.Tools.PDFDecrypter.deps.json_1" FileName="COITTO~1.JSO|coIT.Tools.PDFDecrypter.deps.json" Attributes="0" SourcePath="..\source\repos\PDFDecrypter\PDFDecrypter\bin\Debug\net7.0-windows\coIT.Tools.PDFDecrypter.deps.json" SelfReg="false"/>
-    <ROW File="coIT.Tools.PDFDecrypter.dll" Component_="coIT.Tools.PDFDecrypter.dll" FileName="COITTO~1.DLL|coIT.Tools.PDFDecrypter.dll" Attributes="0" SourcePath="..\source\repos\PDFDecrypter\PDFDecrypter\bin\Debug\net7.0-windows\coIT.Tools.PDFDecrypter.dll" SelfReg="false"/>
-    <ROW File="coIT.Tools.PDFDecrypter.exe" Component_="coIT.Tools.PDFDecrypter.exe_1" FileName="COITTO~1.EXE|coIT.Tools.PDFDecrypter.exe" Attributes="0" SourcePath="..\source\repos\PDFDecrypter\PDFDecrypter\bin\Debug\net7.0-windows\coIT.Tools.PDFDecrypter.exe" SelfReg="false" DigSign="true"/>
-    <ROW File="coIT.Tools.PDFDecrypter.pdb" Component_="coIT.Tools.PDFDecrypter.exe_1" FileName="COITTO~1.PDB|coIT.Tools.PDFDecrypter.pdb" Attributes="0" SourcePath="..\source\repos\PDFDecrypter\PDFDecrypter\bin\Debug\net7.0-windows\coIT.Tools.PDFDecrypter.pdb" SelfReg="false"/>
-    <ROW File="coIT.Tools.PDFDecrypter.runtimeconfig.json" Component_="coIT.Tools.PDFDecrypter.deps.json_1" FileName="COITTO~2.JSO|coIT.Tools.PDFDecrypter.runtimeconfig.json" Attributes="0" SourcePath="..\source\repos\PDFDecrypter\PDFDecrypter\bin\Debug\net7.0-windows\coIT.Tools.PDFDecrypter.runtimeconfig.json" SelfReg="false"/>
-    <ROW File="Spire.Pdf.dll" Component_="Spire.Pdf.dll" FileName="SPIREP~1.DLL|Spire.Pdf.dll" Attributes="0" SourcePath="..\source\repos\PDFDecrypter\PDFDecrypter\bin\Debug\net7.0-windows\Spire.Pdf.dll" SelfReg="false"/>
     <ROW File="updater.exe" Component_="updater.exe" FileName="updater.exe" Version="65535.65535.65535.65535" Attributes="0" SourcePath="&lt;AI_STUBS&gt;updater.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="coIT.Tools.PDFDecrypter.deps.json" Component_="coIT.Tools.PDFDecrypter.deps.json_1" FileName="COITTO~1.JSO|coIT.Tools.PDFDecrypter.deps.json" Attributes="0" SourcePath="..\source\repos\PDFDecrypter\PDFDecrypter\bin\Release\net7.0-windows\coIT.Tools.PDFDecrypter.deps.json" SelfReg="false"/>
+    <ROW File="coIT.Tools.PDFDecrypter.dll" Component_="coIT.Tools.PDFDecrypter.dll" FileName="COITTO~1.DLL|coIT.Tools.PDFDecrypter.dll" Attributes="0" SourcePath="..\source\repos\PDFDecrypter\PDFDecrypter\bin\Release\net7.0-windows\coIT.Tools.PDFDecrypter.dll" SelfReg="false"/>
+    <ROW File="coIT.Tools.PDFDecrypter.exe" Component_="coIT.Tools.PDFDecrypter.exe_1" FileName="COITTO~1.EXE|coIT.Tools.PDFDecrypter.exe" Attributes="0" SourcePath="..\source\repos\PDFDecrypter\PDFDecrypter\bin\Release\net7.0-windows\coIT.Tools.PDFDecrypter.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="coIT.Tools.PDFDecrypter.pdb" Component_="coIT.Tools.PDFDecrypter.exe_1" FileName="COITTO~1.PDB|coIT.Tools.PDFDecrypter.pdb" Attributes="0" SourcePath="..\source\repos\PDFDecrypter\PDFDecrypter\bin\Release\net7.0-windows\coIT.Tools.PDFDecrypter.pdb" SelfReg="false"/>
+    <ROW File="coIT.Tools.PDFDecrypter.runtimeconfig.json" Component_="coIT.Tools.PDFDecrypter.deps.json_1" FileName="COITTO~2.JSO|coIT.Tools.PDFDecrypter.runtimeconfig.json" Attributes="0" SourcePath="..\source\repos\PDFDecrypter\PDFDecrypter\bin\Release\net7.0-windows\coIT.Tools.PDFDecrypter.runtimeconfig.json" SelfReg="false"/>
+    <ROW File="Spire.Pdf.dll" Component_="Spire.Pdf.dll" FileName="SPIREP~1.DLL|Spire.Pdf.dll" Attributes="0" SourcePath="..\source\repos\PDFDecrypter\PDFDecrypter\bin\Release\net7.0-windows\Spire.Pdf.dll" SelfReg="false"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
@@ -128,10 +128,10 @@
     <ROW Feature_="MainFeature" Component_="APPDIR"/>
     <ROW Feature_="MainFeature" Component_="ProductInformation"/>
     <ROW Feature_="MainFeature" Component_="coIT.Tools.PDFDecrypter.dll"/>
+    <ROW Feature_="MainFeature" Component_="updater.exe"/>
     <ROW Feature_="MainFeature" Component_="Spire.Pdf.dll"/>
     <ROW Feature_="MainFeature" Component_="coIT.Tools.PDFDecrypter.deps.json_1"/>
     <ROW Feature_="MainFeature" Component_="coIT.Tools.PDFDecrypter.exe_1"/>
-    <ROW Feature_="MainFeature" Component_="updater.exe"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIniFileComponent">
     <ROW IniFile="AppDir" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="AppDir" Value="[APPDIR]" Action="0" Component_="updater.exe"/>
@@ -178,7 +178,6 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
     <ROW Shortcut="Verknpfungzu" Directory_="DesktopFolder" Name="PDFDEC~1|PDFDecrypter Aktualisieren" Component_="updater.exe" Target="[#updater.exe]" Arguments="/checknow" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
-    <ROW Shortcut="Verknpfungzu_1" Directory_="DesktopFolder" Name="PDFDEC~2|PDFDecrypter" Component_="coIT.Tools.PDFDecrypter.exe_1" Target="[#coIT.Tools.PDFDecrypter.exe]" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
     <ATTRIBUTE name="UsedTheme" value="classic"/>
