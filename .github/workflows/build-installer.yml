@@ -44,7 +44,3 @@ jobs:
           file: D:\a\PDFDecrypter\PDFDecrypter\setup\setup.msi
           tag: ${{ github.ref }}
           overwrite: true
-      - name: Release Draft
-        uses: crs-k/release-draft@v0.6.1
-        with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
