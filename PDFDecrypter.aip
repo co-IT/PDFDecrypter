@@ -2,17 +2,19 @@
 <DOCUMENT Type="Advanced Installer" CreateVersion="21.1" version="21.1" PreviousModules="simple" Modules="professional" RootPath="." Language="de" Id="{75E5A67E-5143-4FAC-B91C-40DE65127C1B}">
   <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
     <ROW Name="HiddenItems" Value="ActSyncAppComponent;CPLAppletComponent;AppXAppDetailsComponent;FixupComponent;AppXCapabilitiesComponent;AppXDependenciesComponent;AppXProductDetailsComponent;AppXVisualAssetsComponent;AppXAppDeclarationsComponent;AppXUriRulesComponent;MsiXDiffComponent;MsixManifestEditorComponent"/>
+    <ROW Name="TilesAssetGenDestFolderPath" Value="Generated Tiles" ValueType="1"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
     <ROW Property="ALLUSERS" Value="1"/>
     <ROW Property="ARPCOMMENTS" Value="Diese Datenbank ist korrekt und enthält nötige Daten um [|ProductName] zu installieren." ValueLocId="*"/>
+    <ROW Property="ARPPRODUCTICON" Value="PDFDecrypter.exe" Type="8"/>
     <ROW Property="ARPURLUPDATEINFO" Value="https://github.com/co-IT/PDFDecrypter"/>
     <ROW Property="Manufacturer" Value="co-IT.eu GmbH"/>
-    <ROW Property="ProductCode" Value="1031:{B9F4EDF3-C44F-4C1D-9AC4-28EBD3D4AFF9} " Type="16"/>
+    <ROW Property="ProductCode" Value="1031:{9D19E9E5-321A-4202-899D-268719DA9798} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="PDFDecrypter"/>
-    <ROW Property="ProductVersion" Value="2.0.0" Options="32"/>
+    <ROW Property="ProductVersion" Value="3.0.0" Options="32"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{19D757FF-72C7-4D29-895F-F86C240AC875}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
@@ -133,15 +135,18 @@
     <ROW Feature_="MainFeature" Component_="coIT.Tools.PDFDecrypter.deps.json_1"/>
     <ROW Feature_="MainFeature" Component_="coIT.Tools.PDFDecrypter.exe_1"/>
   </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="PDFDecrypter.exe" SourcePath="..\Desktop\PDFDecrypter.ico" Index="0"/>
+  </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIniFileComponent">
     <ROW IniFile="AppDir" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="AppDir" Value="[APPDIR]" Action="0" Component_="updater.exe"/>
     <ROW IniFile="ApplicationName" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="ApplicationName" Value="[ProductName]" Action="0" Component_="updater.exe"/>
     <ROW IniFile="ApplicationVersion" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="ApplicationVersion" Value="[ProductVersion]" Action="0" Component_="updater.exe"/>
-    <ROW IniFile="CheckFrequency" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="CheckFrequency" Value="2" Action="0" Component_="updater.exe"/>
+    <ROW IniFile="CheckFrequency" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="CheckFrequency" Value="1" Action="0" Component_="updater.exe"/>
     <ROW IniFile="CompanyName" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="CompanyName" Value="[Manufacturer]" Action="0" Component_="updater.exe"/>
-    <ROW IniFile="DefaultCommandLine" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="DefaultCommandLine" Value="/checknow" Action="0" Component_="updater.exe"/>
+    <ROW IniFile="DefaultCommandLine" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="DefaultCommandLine" Value="/silentall" Action="0" Component_="updater.exe"/>
     <ROW IniFile="DownloadsFolder" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="DownloadsFolder" Value="[CommonAppDataFolder][Manufacturer]\[ProductName]\updates\" Action="0" Component_="updater.exe"/>
-    <ROW IniFile="Flags" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="Flags" Value="PerMachine|ShowConfigOptionsButton|GitHubUpdates" Action="0" Component_="updater.exe"/>
+    <ROW IniFile="Flags" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="Flags" Value="PerMachine|NoUpdaterInstallGUI|InstallSummaryAlways|GitHubUpdates" Action="0" Component_="updater.exe"/>
     <ROW IniFile="ID" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="ID" Value="[UpgradeCode]" Action="0" Component_="updater.exe"/>
     <ROW IniFile="URL" FileName="updater.ini" DirProperty="APPDIR" Section="General" Key="URL" Value="https://api.github.com/repos/co-IT/PDFDecrypter/releases " Action="0" Component_="updater.exe"/>
   </COMPONENT>
@@ -177,6 +182,7 @@
     <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
+    <ROW Shortcut="PDFDecrypter" Directory_="DesktopFolder" Name="PDFDEC~2|PDFDecrypter" Component_="coIT.Tools.PDFDecrypter.exe_1" Target="[#coIT.Tools.PDFDecrypter.exe]" Hotkey="0" Icon_="PDFDecrypter.exe" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
     <ROW Shortcut="Verknpfungzu" Directory_="DesktopFolder" Name="PDFDEC~1|PDFDecrypter Aktualisieren" Component_="updater.exe" Target="[#updater.exe]" Arguments="/checknow" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
