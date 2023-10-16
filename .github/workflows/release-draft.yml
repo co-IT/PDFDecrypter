@@ -27,9 +27,8 @@ jobs:
           echo "prerelease: ${{ steps.last_release.outputs.prerelease }}"
           echo "url: ${{ steps.last_release.outputs.url }}"
           echo "html_url: ${{ steps.last_release.outputs.html_url }}"
-      - name: Publish release
-        uses: StuYarrow/publish-release@v1.1.2
+      - uses: eregon/publish-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          id: ${{ steps.last_release.outputs.id }}
+          release_id: ${{ steps.last_release.outputs.id }}      
