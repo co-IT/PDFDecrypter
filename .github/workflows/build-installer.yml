@@ -37,16 +37,3 @@ jobs:
         with:
           name: setup
           path: ${{ github.workspace }}\setup\setup.msi
-      - name: Upload binaries to release
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: D:\a\PDFDecrypter\PDFDecrypter\setup\setup.msi
-          tag: ${{ github.ref }}
-          overwrite: true
-      - name: Add to latest release
-        uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          files: |
-            D:\a\PDFDecrypter\PDFDecrypter\setup\setup.msi
