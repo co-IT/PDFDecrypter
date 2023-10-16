@@ -1,26 +1,28 @@
-name: Build Advanced Installer Project (.AIP)
+name: Build project and installer
 
 on:
   push:
     tags:
       - '*'
 jobs:
-  advinst-aip-build-demo:
+  build-project-and-installer:
     runs-on: windows-latest
-    name: Build Aip Demo
+    name: Build project and installer
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
       - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '7.0.x' # SDK Version to use.
-      - run: dotnet restore --use-current-runtime PDFDecrypter/coIT.Tools.PDFDecrypter.csproj
-      - run: dotnet build --configuration Release PDFDecrypter/coIT.Tools.PDFDecrypter.csproj
-      - name: Copy Release to AIP build
+      - name: .NET restore
+        run: dotnet restore --use-current-runtime PDFDecrypter/coIT.Tools.PDFDecrypter.csproj
+      - name: .NET build
+        run: dotnet build --configuration Release PDFDecrypter/coIT.Tools.PDFDecrypter.csproj
+      - name: Copy release to installer builder
         run: |
           mkdir D:\a\PDFDecrypter\source\repos\PDFDecrypter\PDFDecrypter\bin\Release\net7.0-windows\
           cp D:\a\PDFDecrypter\PDFDecrypter\PDFDecrypter\bin\Release\net7.0-windows\*.* D:\a\PDFDecrypter\source\repos\PDFDecrypter\PDFDecrypter\bin\Release\net7.0-windows\
-      - name: Build AIP
+      - name: Build installer
         uses: caphyon/advinst-github-action@v1.0
         with:
           advinst-version: '21.1'
@@ -28,19 +30,19 @@ jobs:
           advinst-enable-automation: 'true'
           aip-path: ${{ github.workspace }}\PDFDecrypter.aip
           aip-build-name: DefaultBuild
-          aip-package-name: setup.msi
+          aip-package-name: PDFDecrypter-v${{  github.ref_name }}.msi
           aip-output-dir:  ${{ github.workspace }}\setup
           aip-commands: |
             SetVersion ${{  github.ref_name }}
-      - name: Publish setup artifact
+      - name: Publish installer
         uses: actions/upload-artifact@v2
         with:
           name: setup
-          path: ${{ github.workspace }}\setup\setup.msi
-      - name: Upload binaries to release
+          path: ${{ github.workspace }}\setup\PDFDecrypter-v${{  github.ref_name }}.msi
+      - name: Upload installer to release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: D:\a\PDFDecrypter\PDFDecrypter\setup\setup.msi
+          file: D:\a\PDFDecrypter\PDFDecrypter\setup\PDFDecrypter-v${{  github.ref_name }}.msi
           tag: ${{ github.ref }}
           overwrite: true
