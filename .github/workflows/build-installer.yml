@@ -11,6 +11,11 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
+      - uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '7.0.x' # SDK Version to use.
+      - run: dotnet restore --use-current-runtime PDFDecrypter/coIT.Tools.PDFDecrypter.csproj
+      - run: dotnet build --configuration Release PDFDecrypter/coIT.Tools.PDFDecrypter.csproj
       - name: Build AIP
         uses: caphyon/advinst-github-action@v1.0
         with:
