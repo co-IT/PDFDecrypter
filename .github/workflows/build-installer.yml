@@ -16,6 +16,10 @@ jobs:
           dotnet-version: '7.0.x' # SDK Version to use.
       - run: dotnet restore --use-current-runtime PDFDecrypter/coIT.Tools.PDFDecrypter.csproj
       - run: dotnet build --configuration Release PDFDecrypter/coIT.Tools.PDFDecrypter.csproj
+      - name: Copy Release to AIP build
+        run: |
+          mkdir D:\a\PDFDecrypter\source\repos\PDFDecrypter\PDFDecrypter\bin\Release\net7.0-windows\
+          cp D:\a\PDFDecrypter\PDFDecrypter\PDFDecrypter\bin\Release\net7.0-windows\*.* D:\a\PDFDecrypter\source\repos\PDFDecrypter\PDFDecrypter\bin\Release\net7.0-windows\
       - name: Build AIP
         uses: caphyon/advinst-github-action@v1.0
         with:
