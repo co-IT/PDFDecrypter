@@ -31,7 +31,7 @@ jobs:
           aip-package-name: setup.msi
           aip-output-dir:  ${{ github.workspace }}\setup
           aip-commands: |
-            SetVersion 2.2.0
+            SetVersion ${{  github.ref_name }}
       - name: Publish setup artifact
         uses: actions/upload-artifact@v2
         with:
