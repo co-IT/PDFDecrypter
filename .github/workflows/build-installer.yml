@@ -42,4 +42,4 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            ${{ github.workspace }}\setup\setup.msi
+            D:\a\PDFDecrypter\PDFDecrypter\setup\setup.msi
