@@ -1,0 +1,36 @@
+name: Build Advanced Installer Project (.AIP)
+
+on:
+  push:
+    tags:
+      - '*'
+jobs:
+  advinst-aip-build-demo:
+    runs-on: windows-latest
+    name: Build Aip Demo
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Build AIP
+        uses: caphyon/advinst-github-action@v1.0
+        with:
+          advinst-version: '21.0'
+          advinst-license: ${{ secrets.ADVINST_LICENSE_KEY }}
+          advinst-enable-automation: 'true'
+          aip-path: ${{ github.workspace }}\PDFDecrypter.aip
+          aip-build-name: DefaultBuild
+          aip-package-name: setup.msi
+          aip-output-dir:  ${{ github.workspace }}\setup
+          aip-commands: |
+            SetVersion 2.2.0
+      - name: Publish setup artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: setup
+          path: ${{ github.workspace }}\setup\setup.msi
+      - name: Add to latest release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            ${{ github.workspace }}\setup\setup.msi
