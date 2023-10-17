@@ -39,6 +39,7 @@
             groupBox3 = new GroupBox();
             label1 = new Label();
             groupBox2 = new GroupBox();
+            listBox1 = new ListBox();
             groupBox1 = new GroupBox();
             ctrl_DestinationDirectory = new Label();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -130,6 +131,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            splitContainer1.Panel2.Controls.Add(listBox1);
             splitContainer1.Panel2.Controls.Add(ctrl_Files);
             splitContainer1.Size = new Size(1008, 729);
             splitContainer1.SplitterDistance = 165;
@@ -165,6 +167,15 @@
             groupBox2.TabIndex = 9;
             groupBox2.TabStop = false;
             groupBox2.Text = "Quelle";
+            // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 15;
+            listBox1.Location = new Point(627, 18);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(120, 94);
+            listBox1.TabIndex = 5;
             // 
             // groupBox1
             // 
@@ -225,5 +236,6 @@
         private GroupBox groupBox2;
         private GroupBox groupBox1;
         private Label ctrl_DestinationDirectory;
+        private ListBox listBox1;
     }
 }

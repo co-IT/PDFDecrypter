@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "coIT.Tools.PDFDecrypter": {
+      "commandName": "Project",
+      "commandLineArgs": "test test2\r\n"
+    }
+  }
+}

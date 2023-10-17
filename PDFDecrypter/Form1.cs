@@ -12,6 +12,12 @@ namespace coIT.Tools.PDFDecrypter
         public Form1()
         {
             InitializeComponent();
+            string[] args = Environment.GetCommandLineArgs();
+
+            foreach (string arg in args)
+            {
+                listBox1.Items.Add(arg);
+            }
         }
 
         private void btnOpenDirectory_Click(object sender, EventArgs e)
