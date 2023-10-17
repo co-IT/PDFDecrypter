@@ -5,6 +5,7 @@
     <ROW Name="TilesAssetGenDestFolderPath" Value="Generated Tiles" ValueType="1"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="AI_APP_ARGS" Value="firstrun"/>
     <ROW Property="AI_APP_FILE" Value="[#coIT.Tools.PDFDecrypter.exe]"/>
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
     <ROW Property="AI_PREDEF_LCONDS_PROPS" Value="AI_DETECTED_ADMIN_USER"/>
@@ -14,10 +15,10 @@
     <ROW Property="ARPURLUPDATEINFO" Value="https://github.com/co-IT/PDFDecrypter"/>
     <ROW Property="CTRLS" Value="2"/>
     <ROW Property="Manufacturer" Value="co-IT.eu GmbH"/>
-    <ROW Property="ProductCode" Value="1031:{9D19E9E5-321A-4202-899D-268719DA9798} " Type="16"/>
+    <ROW Property="ProductCode" Value="1031:{FC565BF3-E80B-4CC8-A356-6D6080E8BEA1} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="PDFDecrypter"/>
-    <ROW Property="ProductVersion" Value="3.0.0" Options="32"/>
+    <ROW Property="ProductVersion" Value="2.0.0" Options="32"/>
     <ROW Property="RUNAPPLICATION" Value="1" Type="4"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{19D757FF-72C7-4D29-895F-F86C240AC875}"/>
@@ -226,7 +227,7 @@
     <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
-    <ROW Shortcut="PDFDecrypter" Directory_="DesktopFolder" Name="PDFDEC~2|PDFDecrypter" Component_="coIT.Tools.PDFDecrypter.exe_1" Target="[#coIT.Tools.PDFDecrypter.exe]" Hotkey="0" Icon_="PDFDecrypter_1.exe" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
+    <ROW Shortcut="PDFDecrypter" Directory_="DesktopFolder" Name="PDFDEC~2|PDFDecrypter" Component_="coIT.Tools.PDFDecrypter.exe_1" Target="[#coIT.Tools.PDFDecrypter.exe]" Arguments="defaultrun" Hotkey="0" Icon_="PDFDecrypter_1.exe" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
     <ROW Shortcut="Verknpfungzu" Directory_="DesktopFolder" Name="PDFDEC~1|PDFDecrypter Aktualisieren" Component_="updater.exe" Target="[#updater.exe]" Arguments="/checknow" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="APPDIR"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
