@@ -6,7 +6,8 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
-    <ROW Property="ALLUSERS" Value="1"/>
+    <ROW Property="AI_PREDEF_LCONDS_PROPS" Value="AI_DETECTED_ADMIN_USER"/>
+    <ROW Property="ALLUSERS" Value="1" MultiBuildValue="DefaultBuild:2"/>
     <ROW Property="ARPCOMMENTS" Value="Diese Datenbank ist korrekt und enthält nötige Daten um [|ProductName] zu installieren." ValueLocId="*"/>
     <ROW Property="ARPPRODUCTICON" Value="PDFDecrypter_1.exe" Type="8"/>
     <ROW Property="ARPURLUPDATEINFO" Value="https://github.com/co-IT/PDFDecrypter"/>
@@ -32,6 +33,7 @@
     <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="AI_INSTALLPERUSER" ComponentId="{30B32F2D-B1B3-491F-82C2-EDC0CA60CC4E}" Directory_="APPDIR" Attributes="4" KeyPath="AI_INSTALLPERUSER" Options="1"/>
     <ROW Component="APPDIR" ComponentId="{67AD01C7-ADD3-47D7-AE64-D4249F8EBC11}" Directory_="APPDIR" Attributes="0"/>
     <ROW Component="ProductInformation" ComponentId="{84AB938E-3DFB-4840-B48D-EC5BDD4521FD}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
     <ROW Component="Spire.Pdf.dll" ComponentId="{6225980A-2874-4A31-86B5-FB24B1229EAC}" Directory_="APPDIR" Attributes="0" KeyPath="Spire.Pdf.dll"/>
@@ -53,8 +55,14 @@
     <ROW File="coIT.Tools.PDFDecrypter.runtimeconfig.json" Component_="coIT.Tools.PDFDecrypter.deps.json_1" FileName="COITTO~2.JSO|coIT.Tools.PDFDecrypter.runtimeconfig.json" Attributes="0" SourcePath="..\source\repos\PDFDecrypter\PDFDecrypter\bin\Release\net7.0-windows\coIT.Tools.PDFDecrypter.runtimeconfig.json" SelfReg="false"/>
     <ROW File="Spire.Pdf.dll" Component_="Spire.Pdf.dll" FileName="SPIREP~1.DLL|Spire.Pdf.dll" Attributes="0" SourcePath="..\source\repos\PDFDecrypter\PDFDecrypter\bin\Release\net7.0-windows\Spire.Pdf.dll" SelfReg="false"/>
   </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.AiPersistentPropComponent">
+    <ROW Property="AI_INSTALLPERUSER" Registry="AI_INSTALLPERUSER" HklmSearch="AI_INSTALLPERUSER" HkcuSearch="AI_INSTALLPERUSER_1"/>
+  </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
     <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BootstrapperUISequenceComponent">
+    <ROW Action="AI_DetectSoftware" Sequence="151"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
     <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" Languages="de" InstallationType="4" UseLargeSchema="true"/>
@@ -66,6 +74,7 @@
   <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
     <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
     <ROW Fragment="FolderDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\FolderDlg.aip"/>
+    <ROW Fragment="InstallTypeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\InstallTypeDlg.aip"/>
     <ROW Fragment="MaintenanceTypeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceTypeDlg.aip"/>
     <ROW Fragment="MaintenanceWelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceWelcomeDlg.aip"/>
     <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;classic\fragments\SequenceDialogs.aip"/>
@@ -78,13 +87,18 @@
     <ROW Fragment="VerifyRepairDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRepairDlg.aip"/>
     <ROW Fragment="WelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\WelcomeDlg.aip"/>
   </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiAppSearchComponent">
+    <ROW Property="AI_INSTALLPERUSER" Signature_="AI_INSTALLPERUSER"/>
+    <ROW Property="AI_INSTALLPERUSER" Signature_="AI_INSTALLPERUSER_1"/>
+  </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="SoftwareDetector.dll" SourcePath="&lt;AI_CUSTACTS&gt;SoftwareDetector.dll"/>
     <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
-    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="NewDialog" Argument="InstallTypeDlg" Condition="AI_INSTALL" Ordering="1"/>
     <ROW Dialog_="FolderDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_INSTALL" Ordering="201"/>
-    <ROW Dialog_="FolderDlg" Control_="Back" Event="NewDialog" Argument="WelcomeDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="FolderDlg" Control_="Back" Event="NewDialog" Argument="InstallTypeDlg" Condition="AI_INSTALL" Ordering="1"/>
     <ROW Dialog_="MaintenanceWelcomeDlg" Control_="Next" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="99"/>
     <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_MAINT" Ordering="198"/>
     <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="202"/>
@@ -104,13 +118,17 @@
     <ROW Dialog_="ResumeDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_RESUME" Ordering="299"/>
     <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_PATCH" Ordering="199"/>
     <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="PatchWelcomeDlg" Condition="AI_PATCH" Ordering="203"/>
+    <ROW Dialog_="InstallTypeDlg" Control_="Next" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="101"/>
+    <ROW Dialog_="InstallTypeDlg" Control_="Back" Event="NewDialog" Argument="WelcomeDlg" Condition="AI_INSTALL" Ordering="1"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
     <ROW Directory_="APPDIR" Component_="APPDIR" ManualDelete="true"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_AuthorSinglePackage" Type="1" Source="aicustact.dll" Target="AI_AuthorSinglePackage" WithoutSeq="true"/>
     <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH_ORIGINAL" Target="[AI_SETUPEXEPATH]"/>
     <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
+    <ROW Action="AI_DetectSoftware" Type="257" Source="SoftwareDetector.dll" Target="OnDetectSoftware"/>
     <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
     <ROW Action="AI_EnableDebugLog" Type="321" Source="aicustact.dll" Target="EnableDebugLog"/>
     <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
@@ -119,10 +137,11 @@
     <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH" Target="[AI_SETUPEXEPATH_ORIGINAL]"/>
     <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
     <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
+    <ROW Action="AI_SETMIXINSTLOCATION" Type="1" Source="aicustact.dll" Target="MixedAllUsersInstallLocation"/>
     <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
     <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
     <ROW Action="AI_UPDATER_UNINSTALL" Type="82" Source="updater.exe" Target="/clean silent"/>
-    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]" MultiBuildTarget="DefaultBuild:[AI_UserProgramFiles][Manufacturer]\[ProductName]"/>
     <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
     <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
   </COMPONENT>
@@ -134,6 +153,7 @@
     <ROW Feature_="MainFeature" Component_="Spire.Pdf.dll"/>
     <ROW Feature_="MainFeature" Component_="coIT.Tools.PDFDecrypter.deps.json_1"/>
     <ROW Feature_="MainFeature" Component_="coIT.Tools.PDFDecrypter.exe_1"/>
+    <ROW Feature_="MainFeature" Component_="AI_INSTALLPERUSER"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
     <ROW Name="PDFDecrypter_1.exe" SourcePath="PDFDecrypter.ico" Index="0"/>
@@ -152,21 +172,25 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
     <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
-    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="748"/>
     <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1501"/>
     <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1397"/>
     <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
     <ROW Action="AI_EnableDebugLog" Sequence="51"/>
     <ROW Action="AI_UPDATER_UNINSTALL" Condition="($updater.exe = 2) AND (?updater.exe = 3) AND NOT (UPGRADINGPRODUCTCODE)" Sequence="1551"/>
+    <ROW Action="AI_DetectSoftware" Sequence="101"/>
+    <ROW Action="AI_SETMIXINSTLOCATION" Sequence="747"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
     <ROW Action="AI_PRESERVE_INSTALL_TYPE" Sequence="199"/>
-    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="748"/>
     <ROW Action="AI_ResolveKnownFolders" Sequence="53"/>
     <ROW Action="AI_DpiContentScale" Sequence="52"/>
     <ROW Action="AI_EnableDebugLog" Sequence="51"/>
     <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99"/>
-    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="101"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="102"/>
+    <ROW Action="AI_DetectSoftware" Sequence="101"/>
+    <ROW Action="AI_SETMIXINSTLOCATION" Sequence="747"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
     <ROW Condition="((VersionNT &lt;&gt; 501) AND (VersionNT &lt;&gt; 502))" Description="[ProductName] kann nicht auf [WindowsTypeNT5XDisplay] installiert werden." DescriptionLocId="AI.LaunchCondition.NoNT5X" IsPredefined="true" Builds="DefaultBuild"/>
@@ -174,11 +198,17 @@
     <ROW Condition="(VersionNT &lt;&gt; 500)" Description="[ProductName] kann nicht auf [WindowsTypeNT50Display] installiert werden." DescriptionLocId="AI.LaunchCondition.NoNT50" IsPredefined="true" Builds="DefaultBuild"/>
     <ROW Condition="VersionNT" Description="[ProductName] kann nicht auf [WindowsType9XDisplay] installiert werden." DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
   </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegLocatorComponent">
+    <ROW Signature_="AI_INSTALLPERUSER" Root="2" Key="Software\[Manufacturer]\[UpgradeCode]" Name="AI_INSTALLPERUSER" Type="2"/>
+    <ROW Signature_="AI_INSTALLPERUSER_1" Root="1" Key="Software\[Manufacturer]\[UpgradeCode]" Name="AI_INSTALLPERUSER" Type="2"/>
+  </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
+    <ROW Registry="AI_INSTALLPERUSER" Root="-1" Key="Software\[Manufacturer]\[UpgradeCode]" Name="AI_INSTALLPERUSER" Value="[AI_INSTALLPERUSER]" Component_="AI_INSTALLPERUSER"/>
     <ROW Registry="Manufacturer" Root="-1" Key="Software\[Manufacturer]" Name="\"/>
     <ROW Registry="Path" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Path" Value="[APPDIR]" Component_="ProductInformation"/>
     <ROW Registry="ProductName" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="\"/>
     <ROW Registry="Software" Root="-1" Key="Software" Name="\"/>
+    <ROW Registry="UpgradeCode" Root="-1" Key="Software\[Manufacturer]\[UpgradeCode]" Name="\"/>
     <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
