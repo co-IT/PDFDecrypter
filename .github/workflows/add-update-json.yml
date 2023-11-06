@@ -1,0 +1,32 @@
+name: Add advinst_update.json
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs: 
+  build:
+
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      # This is used to complete the identity challenge
+      # with sigstore/fulcio when running outside of PRs.
+      id-token: write
+
+    steps:
+      - name: Create json
+        env:
+          VERSION: ${{  github.ref_name }}
+        run: |
+          touch advinst_update.json
+          echo { "RegistryKey":"HKUD\\Software\\co-IT.eu GmbH\\PDFDecrypter\\Version", "Version": "$VERSION" } >> advinst_update.json
+      - name: Add json to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: advinst_update.json
+          tag: ${{ github.ref }}
+          overwrite: true
