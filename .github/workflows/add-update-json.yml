@@ -23,6 +23,8 @@ jobs:
         run: |
           touch advinst_update.json
           echo { "RegistryKey":"HKUD\\Software\\co-IT.eu GmbH\\PDFDecrypter\\Version", "Version": "$VERSION" } >> advinst_update.json
+          readlink advinst_update.json
+          cat advinst_update.json
       - name: Add json to release
         uses: svenstaro/upload-release-action@v2
         with:
