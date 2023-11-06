@@ -15,7 +15,7 @@ jobs:
           VERSION: ${{  github.ref_name }}
         run: |
           touch advinst_update.json
-          echo { "RegistryKey":"HKUD\\Software\\co-IT.eu GmbH\\PDFDecrypter\\Version", "Version": "$VERSION" } >> advinst_update.json
+          echo { "RegistryKey":"HKUD\\\\Software\\\\co-IT.eu GmbH\\\\PDFDecrypter\\\\Version", "Version": "$VERSION" } >> advinst_update.json
           readlink -e advinst_update.json
           cat advinst_update.json
       - name: Add json to release
